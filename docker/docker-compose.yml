@@ -1,7 +1,7 @@
 version: '3'
 services:
   database-node1:
-    image: amazon/opendistro-for-elasticsearch:latest
+    image: amazon/opendistro-for-elasticsearch:1.13.3
     container_name: database-node1
     environment:
       - cluster.name=database-cluster
