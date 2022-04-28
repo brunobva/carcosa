@@ -74,6 +74,8 @@ docker image build -t kali-carcosa:1.0 .
 
 echo "[+] GENERATING ELASTIC CERTIFICATE"
 
+mkdir -p certs
+
 # certs db
 openssl genrsa -out certs/root-ca-key.pem 2048
 openssl req -new -x509 -sha256 -key certs/root-ca-key.pem -out certs/root-ca.pem -days 10000 -subj "/C=US/ST=Carcosa/L=Carcosa/O=Carcosa Security/OU=IT/CN=carcosa.com"
