@@ -78,8 +78,8 @@ echo "[+] GENERATING ELASTIC CERTIFICATE"
 openssl genrsa -out certs/root-ca-key.pem 2048
 openssl req -new -x509 -sha256 -key certs/root-ca-key.pem -out certs/root-ca.pem -days 10000 -subj "/C=US/ST=Carcosa/L=Carcosa/O=Carcosa Security/OU=IT/CN=carcosa.com"
 openssl genrsa -out certs/admin-ca-key.pem 2048
-openssl pkcs8 -inform PEM -outform PEM -in certs/admin-ca-key.pem -topk8 -nocrypt -v1 PBE-SHA1-3DES -out certs/admin.key.pem
-openssl req -new -key certs/admin.key.pem -out certs/admin.csr -subj "/C=US/ST=Carcosa/L=Carcosa/O=Carcosa Security/OU=IT/CN=carcosa.com"
+openssl pkcs8 -inform PEM -outform PEM -in certs/admin-ca-key.pem -topk8 -nocrypt -v1 PBE-SHA1-3DES -out certs/admin-key.pem
+openssl req -new -key certs/admin-key.pem -out certs/admin.csr -subj "/C=US/ST=Carcosa/L=Carcosa/O=Carcosa Security/OU=IT/CN=carcosa.com"
 openssl x509 -req -in certs/admin.csr -CA certs/root-ca.pem -CAkey certs/root-ca-key.pem -CAcreateserial -sha256 -out certs/admin.pem -days 10000
 
 chmod 777 -R certs/
